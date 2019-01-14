@@ -1,6 +1,8 @@
 # FRC Deep Space hatch-cargo-select
 A custom HTML Element to track the Deep Space Hatch/Cargo hold events.
 
+[demo](https://steelhawks.github.io/deep-space-cargo-select-input/)
+
 ## Dependencies
 
  - [RiotJS](https://riot.js.org/) for creating the HTMLElement
