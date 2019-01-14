@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+      <script src="/material-hatch-select.tag" type="riot/tag"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+
+    <script>
+      // define custom HTML5 Elements here
+      // use this to make HTML more readable
+      class Grid extends HTMLElement {};
+      customElements.define('ui-grid', Grid )
+
+      class CargoShip extends HTMLElement {};
+      customElements.define('frc-cargo-ship', CargoShip);
+
+      class Rocket extends HTMLElement {};
+      customElements.define('frc-rocket', Rocket);
+
+      class Legend extends HTMLElement {};
+      customElements.define('frc-legend', Legend);
+
+
+    </script>
+
+    <style>
+
+      ui-grid{
+       display:grid;
+      }
+
+      .field_grid{
+       display:grid;
+        grid-template-columns: repeat( 6, 1fr);
+      }
+
+
+      .cargo_field_grid{
+       display:grid;
+        grid-template-columns: repeat( 4, 1fr);
+        grid-template-rows: repeat( 2, 1fr);
+      }
+
+
+      .hab {
+        display: grid;
+        grid-gap: 10px;
+		    grid-template-columns: 100px 100px;
+		    background-color: #fff;
+		    color: #444;
+      }
+
+      .park{
+        background-color: #ccc;
+        color: #fff;
+        padding: 10px;
+        font-size: 150%;
+      }
+
+
+      .park.success{
+        background-color: #444;
+      }
+
+
+      .hab .level3 {
+        grid-column: 1/2 ;
+        grid-row: 2 ;
+      }
+
+      .hab .level2 {
+        grid-column: 1 / 2;
+        grid-row: 1;
+      }
+
+      .hab .level1 {
+        grid-column: 2 ;
+        grid-row: 1 / 3;
+        align-self: center
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+        <ui-grid style="grid-template-rows:1fr 3fr 1fr;padding:10px">
+
+        <frc-rocket style="background-color:#d6d6d6;" class="field_grid">
+              <hatch-cargo-select position="RLF1"></hatch-cargo-select>
+              <hatch-cargo-select position="RLF2"></hatch-cargo-select>
+              <hatch-cargo-select position="RLF3"></hatch-cargo-select>
+              <hatch-cargo-select position="RLB1"></hatch-cargo-select>
+              <hatch-cargo-select position="RLB2"></hatch-cargo-select>
+              <hatch-cargo-select position="RLB3"></hatch-cargo-select>
+
+        </frc-rocket>
+
+        <div style="display:grid;grid-template-columns:1fr 2fr 4fr">
+
+            <form action="#">
+              <h5>
+                Parking
+              </h5>
+    <p>
+      <label>
+        <input name="parking" value="12" type="radio" />
+        <span>Level 3</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="parking" value="6" type="radio" />
+        <span>Level 2</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="parking" value="3" type="radio"  />
+        <span>Level 1</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="parking" type="radio"/>
+        <span>DNP</span>
+      </label>
+    </p>
+
+          </form>
+
+
+          <form id="events" action="#" style="justify-self:center;align-self: center">
+            <p>
+              <label>
+                <input class="event_checkbox" value="sandstorm" type="checkbox" checked/>
+                <span>Sandstorm</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="event_checkbox" value="preload" type="checkbox" checked/>
+                <span>Preload</span>
+              </label>
+            </p>
+          </form>
+
+          <frc-cargo-ship class="cargo_field_grid" style="justify-self:end;align-self: center">
+                <hatch-cargo-select position="CL1" > </hatch-cargo-select>
+                <hatch-cargo-select position="CL2" > </hatch-cargo-select>
+                <hatch-cargo-select position="CL3" > </hatch-cargo-select>
+                <hatch-cargo-select position="CL4" > </hatch-cargo-select>
+                <hatch-cargo-select position="CR1" > </hatch-cargo-select>
+                <hatch-cargo-select position="CR2" > </hatch-cargo-select>
+                <hatch-cargo-select position="CR3" > </hatch-cargo-select>
+                <hatch-cargo-select position="CR4" > </hatch-cargo-select>
+          </frc-cargo-ship>
+
+        </div>
+
+
+
+        <frc-rocket style="background-color:#d6d6d6;" class="field_grid">
+
+              <hatch-cargo-select position="RRF1" ></hatch-cargo-select>
+              <hatch-cargo-select position="RRF2" ></hatch-cargo-select>
+              <hatch-cargo-select position="RRF3" ></hatch-cargo-select>
+              <hatch-cargo-select position="RRB1" ></hatch-cargo-select>
+              <hatch-cargo-select position="RRB2" ></hatch-cargo-select>
+              <hatch-cargo-select position="RRB3" ></hatch-cargo-select>
+
+        </frc-rocket>
+
+
+      </ui-grid>
+
+      <div style="padding:10px">
+
+         <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">View Data</a>
+
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Match Report Data</h4>
+                <table>
+                    <thead>
+                      <tr>
+                          <th>Field</th>
+                          <th>Total</th>
+                          <th>Sandstorm</th>
+                          <th>Score</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>Hatches</td>
+                        <td id="hatch_loaded">0</td>
+                        <td id="ss_hatch_loaded">0</td>
+                        <td id="hatch_score">0</td>
+                      </tr>
+                      <tr>
+                        <td>Cargo</td>
+                        <td id="cargo_loaded">0</td>
+                        <td id="ss_cargo_loaded">0</td>
+                        <td id="cargo_score">0</td>
+                      </tr>
+                      <tr>
+                        <td>Parking</td>
+                        <td id="parking"></td>
+                        <td></td>
+                        <td id="parking_score">0</td>
+                      </tr>
+
+              </tbody>
+            </table>
+
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
+
+        <frc-legend>
+          <h4>
+            Legend
+          </h4>
+            <ul>
+              <li>R = Rocket</li>
+              <li>C = Cargo Hold</li>
+              <li>L = Left of Driver</li>
+              <li>R = Right of Driver</li>
+              <li>F = Front of Rocket (Facing Driver )</li>
+              <li>B = Back of Rocket (Out of view from Driver )</li>
+          </ul>
+            <ul>
+              <li>1 = For Rocket the bottom hatch/cargo</li>
+              <li>2 = For Rocket, the middle hatch/cargo</li>
+              <li>3 = For Rocket, the top hatch/cargo</li>
+          </ul>
+
+                <ul>
+              <li>1 = Cargo Bay, 1st slot (closests to Driver)</li>
+              <li>2 = Cargo Bay, 2nd slot</li>
+              <li>3 = Cargo Bay, 3rd slot</li>
+              <li>4 = Cargo Bay, 4th slot (farthest from Driver)</li>
+
+          </ul>
+        </frc-legend>
+    </div>
+
+
+     <script>
+        // load the RiotJS elements
+        riot.mount('hatch-cargo-select');
+
+         // enable modal
+          var elem = document.querySelector('.modal');
+          var instance = M.Modal.init(elem, {
+            onOpenStart: function(){
+
+              var report = {
+                hatches: 0,
+                cargo: 0,
+                sandstorm_hatches: 0,
+                sandstorm_cargo: 0,
+                details:[]
+              }
+
+
+              $("input.hatch_cargo").each(function(i, input){
+
+                var data = input.value.split("-");
+                var position = data[0];
+                var hatch = data[1];
+                var cargo = data[2];
+
+                console.log( position, hatch, cargo );
+
+                if( hatch.length > 0 ){
+                  report.hatches += 1;
+                }
+
+                if( hatch.indexOf('SS') != -1 ){
+                  report.sandstorm_hatches +=1;
+                }
+
+                if ( cargo.length > 0){
+                  report.cargo += 1;
+                }
+                if( cargo.indexOf('SS') != -1 ){
+                  report.sandstorm_cargo +=1;
+                }
+
+              });
+
+              console.log(report);
+
+              report.parking = $("input[name='parking']:checked").val();
+
+
+              $("#parking_score").html(report.parking);
+
+
+              $("#hatch_loaded").html(report.hatches);
+              $("#ss_hatch_loaded").html(report.sandstorm_hatches);
+              $("#hatch_score").html(report.hatches * 2);
+
+              $("#cargo_loaded").html(report.cargo);
+              $("#ss_cargo_loaded").html(report.sandstorm_cargo);
+              $("#cargo_score").html(report.cargo * 3);
+
+            }
+          });
+
+
+       // refresh report data when modal is opened
+
+
+
+
+
+
+
+
+
+         // toggle SandStorm and Preload display options
+         var elementsArray = document.querySelectorAll('.event_checkbox');
+         elementsArray.forEach(function(checkbox) {
+           checkbox.addEventListener("change", function() {
+             var elementsArray = document.querySelectorAll('.' + checkbox.value);
+             elementsArray.forEach(function(li) {
+               if( checkbox.checked ){
+                 li.style.display= 'block';
+               }
+               else{
+                  li.style.display = 'none';
+               }
+
+             });
+           });
+         });
+
+
+    </script>
+
+  </body>
+</html>
