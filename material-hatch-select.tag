@@ -4,7 +4,7 @@
 
   <!-- Dropdown Trigger -->
   <a class='dropdown-trigger btn btn-large {hatch : hatch || ss_hatch || pre_hatch } { cargo : cargo || ss_cargo || pre_cargo }'
-      href='#' id="trigger_{opts.position}" 
+      href='#' id="trigger_{opts.position}"
       data-target='{opts.position}'>{opts.position}</a>
 
   <!-- Dropdown Structure -->
@@ -108,7 +108,8 @@
 
   this.toggle_hatch = function(){
     self.hatch = !self.hatch;
-    if( self.ss_hatch ){
+    if( self.hatch ){
+      self.pre_hatch = false;
       self.ss_hatch = false;
     }
 
@@ -117,8 +118,9 @@
 
   this.toggle_cargo = function(){
     self.cargo = !self.cargo;
-    if( self.ss_cargo ){
+    if( self.cargo ){
       self.ss_cargo = false;
+      self.pre_cargo = false;
     }
 
     self.update_codes();
@@ -129,6 +131,7 @@
     self.ss_hatch = !self.ss_hatch;
     if( self.ss_hatch ){
       self.hatch = false;
+      self.pre_hatch = false;
     }
     self.update_codes();
   }
@@ -137,6 +140,7 @@
     self.ss_cargo = !self.ss_cargo;
     if( self.ss_cargo ){
       self.cargo = false;
+      self.pre_cargo = false;
     }
     self.update_codes();
   }
