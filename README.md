@@ -10,6 +10,7 @@ A custom HTML Element to track the Deep Space Hatch/Cargo hold events.
 
 ## Status Codes
 the result status code is in the form of
+
 **"identifier"-"hatch status"-"cargo status"**
 
 |Hatch/Cargo Status| Description |
@@ -19,7 +20,7 @@ the result status code is in the form of
 |PREH| Null Hatch loaded during staging|
 | C|normal play cargo loaded|
 |SSC|cargo load during sandstorm|
-|PRES|cargo loaded during staging|
+|PREC|cargo loaded during staging|
 
 example:
 
