@@ -20,11 +20,11 @@ the result status code is in the form of
 |PRES|cargo loaded during staging|
 
 example:
-**RLF2-SSH-C** 
-position RLF2  has a hatch loaded during sandstorm and cargo loaded during  normal play
 
-**RLF3-PREH-SSC** 
-position RLF3  has a null hatch loaded staging and cargo loaded during sandstorm
+|value|description|
+|--|--|
+| **RLF2-SSH-C** | position RLF2  has a hatch loaded during sandstorm and cargo loaded during  normal play|
+| **RLF3-PREH-SSC** | position RLF3  has a null hatch loaded staging and cargo loaded during sandstorm|
 
 ## Basic Usage
 
