@@ -9,6 +9,7 @@ A custom HTML Element to track the Deep Space Hatch/Cargo hold events.
 ## Status Codes
 the result status code is in the form of
 **"identifier"-"hatch status"-"cargo status"**
+
 |Hatch/Cargo Status| Description |
 |--|--|
 | H | normal hatch mounted  |
@@ -25,7 +26,7 @@ position RLF2  has a hatch loaded during sandstorm and cargo loaded during  norm
 **RLF3-PREH-SSC** 
 position RLF3  has a null hatch loaded staging and cargo loaded during sandstorm
 
-## Usage
+## Basic Usage
 
     <head>
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
